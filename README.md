@@ -14,11 +14,7 @@ For more details, refer to the published paper.
 
 The system operates by:
 
-A. **Data pre-processing** 
-- checking inmvalid elements (None, NaN, Null, and empty strings) in the raw daily precipitation dataset
-- fill/replace those invalids with 0s
-- check for any skipped dates/rows
-- convert the boolean operator elements (True and False) into binary integers (0s and 1s) in the "RAIN" dataset column   
+1. **Connecting to a seismic mseed folder** using obspy.clients.filesystem.sds. 
 2. **Excluding earthquake-contaminated data** using ObsPy's recursive STA-LTA.  
 3. **Extracting Power Spectral Density (PSD) features** using PPSD from ObsPy at selected four periods ranges: 4-8s, 18-22s, 90-110s, and 200-500s.  
 4. **Detecting anomalous seismometer data** using a One-class SVM (1-SVM) model.   
@@ -80,3 +76,4 @@ The system outputs a detection result dataframe with the following structure
 python Seismometer_Anomaly Detection.py
 
 ```
+
